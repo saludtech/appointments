@@ -1,24 +1,59 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Requisites
 
-Things you may want to cover:
+Before running anything pease ensure you have the following properly installed in your machine.
 
-* Ruby version
+```
+Ruby 2.7.2
+Rails 6.1
+Postgres > 12
+```
 
-* System dependencies
+I recommend you installing rbenv to handle ruby versions, please follow the instructions https://github.com/rbenv/rbenv
 
-* Configuration
+Once you have ruby installed install the gems `bundle` and `rails`.
 
-* Database creation
+```
+gem install bundle
+```
 
-* Database initialization
+```
+gem install rails
+```
 
-* How to run the test suite
+## Setup
 
-* Services (job queues, cache servers, search engines, etc.)
+Clone the repo, then run inside the root folder of the repository.
 
-* Deployment instructions
+Install the gemos for the proyect
 
-* ...
+```bash
+$ bundle install
+```
+
+Install the javascript dependencies:
+
+```bash
+$ yarn install
+```
+
+Setup database:
+
+```bash
+$ rails db:create db:migrate
+```
+
+Run the server:
+
+```bash
+$ rails s
+```
+
+And in another shell, compile the assets (JS and CSS) with the command
+
+```bash
+$ ./bin/webpack-dev-server
+```
+
+If all went well, you are ready. Go to http://localhost:3000
