@@ -1,0 +1,7 @@
+<div class="grid justify-items-end">
+  <button class=" bg-transparent px-4 py-1 text-sm text-pink-600 font-semibold rounded-full border border-pink-600 hover:text-white hover:bg-pink-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2"><%= link_to "LogOut", destroy_admin_session_path, method: :delete %></button>
+</div>  
+
+<h1 class="text-3xl text-black font-semibold">New Profession</h1>
+
+<%= render "form", profession: @profession %>

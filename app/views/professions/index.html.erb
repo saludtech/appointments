@@ -1,0 +1,29 @@
+<div class="grid justify-items-end">
+  <button class=" bg-transparent px-4 py-1 text-sm text-pink-600 font-semibold rounded-full border border-pink-600 hover:text-white hover:bg-pink-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2"><%= link_to "LogOut", destroy_admin_session_path, method: :delete %></button>
+</div>  
+
+<h1 class="text-3xl text-black font-semibold">Professions</h1>
+
+<br>
+
+<ul>
+  <% @professions.each do |profession| %>
+    <div class="py-8 px-8 max-w-sm  bg-white rounded-xl shadow-md">
+      <p class="text-lg text-black font-semibold">
+          <%= profession.name %>
+        <div class="grid justify-items-end">
+          <button class="bg-transparent px-4 py-1 text-sm text-pink-600 font-semibold rounded-full border border-pink-600 hover:text-white hover:bg-pink-600 hover:border-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2"><%= link_to "Details", profession %></button>
+        </div>
+      </p>
+    </div>
+    
+    <br>
+  <% end %>
+
+</ul>
+
+<button class="bg-pink-600 px-4 py-1 text-sm text-white font-semibold rounded-full border border-pink-600 hover:text-pink-600 hover:bg-white hover:border-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2"><%= link_to "New Profession", new_profession_path %></button>
+
+
+<button class="bg-transparent px-4 py-1 text-sm text-pink-600 font-semibold rounded-full border border-pink-600 hover:text-white hover:bg-pink-600 hover:border-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2"><%= link_to "Back", root_path %></button>
+<br><br>

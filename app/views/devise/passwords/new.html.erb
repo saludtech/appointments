@@ -1,0 +1,26 @@
+<div class="flex justify-end space-x-2">
+  <button class=" bg-transparent px-4 py-1 text-sm text-pink-600 font-semibold rounded-full border border-pink-600 hover:text-white hover:bg-pink-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2"><%= link_to "SignUp", new_admin_registration_path %></button> 
+  <button class=" bg-transparent px-4 py-1 text-sm text-pink-600 font-semibold rounded-full border border-pink-600 hover:text-white hover:bg-pink-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2"><%= link_to "LogIn", admin_session_path %></button>
+</div> 
+
+<h2 class="text-3xl text-black font-semibold">Forgot your password?</h2>
+
+<div class="py-8 px-8 max-w-sm  bg-white rounded-xl shadow-md">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+      
+      <br>
+    
+      <div class="actions">
+        <div class="flex justify-center bg-transparent px-4 py-1 text-sm text-pink-600 font-semibold rounded-full border border-pink-600 hover:text-white hover:bg-pink-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2">
+          <%= f.submit "Send me reset password instructions" %>
+        </div>
+      </div>
+    <% end %>
+</div>
+

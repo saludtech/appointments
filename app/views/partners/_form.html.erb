@@ -1,0 +1,68 @@
+<div class="py-8 px-8 max-w-sm  bg-white rounded-xl shadow-md">
+
+<%= form_with model: partner do |form| %>
+  
+    <div class="mb-3">
+      <%= form.label :name, class: 'block mb-2 font-bold' %>
+      <%= form.text_field :name, class: "bg-gray-100 focus:bg-white focus:outline-none focus:border-orange-600 border-2 border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" %>
+      <% partner.errors.full_messages_for(:name).each do |message| %>
+        <div class="text-gray-500 font-medium"><%= message %></div>
+      <% end %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :last_name, class: 'block mb-2 font-bold' %>
+      <%= form.text_field :last_name, class: "bg-gray-100 focus:bg-white focus:outline-none focus:border-orange-600 border-2 border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" %>
+      <% partner.errors.full_messages_for(:last_name).each do |message| %>
+        <div class="text-gray-500 font-medium"><%= message %></div>
+      <% end %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :second_last_name, class: 'block mb-2 font-bold' %>
+      <%= form.text_field :second_last_name, class: "bg-gray-100 focus:bg-white focus:outline-none focus:border-orange-600 border-2 border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" %>
+      <% partner.errors.full_messages_for(:second_last_name).each do |message| %>
+        <div class="text-gray-500 font-medium"><%= message %></div>
+      <% end %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :rut, class: 'block mb-2 font-bold' %>
+      <%= form.text_field :rut, class: "bg-gray-100 focus:bg-white focus:outline-none focus:border-orange-600 border-2 border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" %>
+      <% partner.errors.full_messages_for(:rut).each do |message| %>
+        <div class="text-gray-500 font-medium"><%= message %></div>
+      <% end %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :age, class: 'block mb-2 font-bold' %>
+      <%= form.text_field :age, class: "bg-gray-100 focus:bg-white focus:outline-none focus:border-orange-600 border-2 border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" %>
+      <% partner.errors.full_messages_for(:age).each do |message| %>
+        <div class="text-gray-500 font-medium"><%= message %></div>
+      <% end %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :gender, class: 'block mb-2 font-bold' %>
+      <%= form.select :gender, ["Male", "Female"], class: "bg-gray-100 focus:bg-white focus:outline-none focus:border-orange-600 border-2 border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" %>
+      <% partner.errors.full_messages_for(:gender).each do |message| %>
+        <div class="text-gray-500 font-medium"><%= message %></div>
+      <% end %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :profession, class: 'block mb-2 font-bold' %>
+      <%= form.collection_select :profession_id, Profession.all, :id, :name, class: "bg-gray-100 focus:bg-white focus:outline-none focus:border-orange-600 border-2 border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal" %>
+      <% partner.errors.full_messages_for(:profession).each do |message| %>
+        <div class="text-gray-500 font-medium"><%= message %></div>
+      <% end %>
+    </div>
+
+    
+    <div class="actions">
+      <button class="bg-pink-600 px-4 py-1 text-sm text-white font-semibold rounded-full border border-pink-600 hover:text-pink-600 hover:bg-white hover:border-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2">Create Partner</button>
+      <button class="bg-transparent px-4 py-1 text-sm text-pink-600 font-semibold rounded-full border border-pink-600 hover:text-white hover:bg-pink-600 hover:border-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2"><%= link_to "Cancel", partners_path %></button>
+    </div>
+  <% end %>
+
+  </div>
