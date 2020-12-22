@@ -1,0 +1,17 @@
+<div class="grid justify-items-end">
+  <button class=" bg-transparent px-4 py-1 text-sm text-pink-600 font-semibold rounded-full border border-pink-600 hover:text-white hover:bg-pink-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2"><%= link_to "LogOut", destroy_admin_session_path, method: :delete %></button>
+</div>  
+
+<div class="py-8 px-8 max-w-sm  bg-white rounded-xl shadow-md">
+  <h1 class="text-lg text-black font-semibold"><%= @profession.name %></h1>
+    <button class="bg-pink-600 px-4 py-1 text-sm text-white font-semibold rounded-full border border-pink-600 hover:text-pink-600 hover:bg-white hover:border-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2"><%= link_to "Edit", edit_profession_path(@profession) %></button>
+    <button class="bg-pink-600 px-4 py-1 text-sm text-white font-semibold rounded-full border border-pink-600 hover:text-pink-600 hover:bg-white hover:border-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2"><%= link_to "Destroy", profession_path(@profession),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } %></button>
+</div>
+
+
+
+
+<br>
+<button class="bg-transparent px-4 py-1 text-sm text-pink-600 font-semibold rounded-full border border-pink-600 hover:text-white hover:bg-pink-600 hover:border-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2"><%= link_to "Back", professions_path %></button>

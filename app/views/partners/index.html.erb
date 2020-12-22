@@ -1,0 +1,27 @@
+<div class="grid justify-items-end">
+  <button class=" bg-transparent px-4 py-1 text-sm text-pink-600 font-semibold rounded-full border border-pink-600 hover:text-white hover:bg-pink-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2"><%= link_to "LogOut", destroy_admin_session_path, method: :delete %></button>
+</div>  
+
+<h1 class="text-3xl text-black font-semibold">Partners</h1>
+
+<br>
+
+<ul>
+  <% @partners.each do |partner| %>
+    <div class="py-8 px-8 max-w-sm  bg-white rounded-xl shadow-md">
+        <p class="text-lg text-black font-semibold">
+            <%= partner.name %> <%= partner.last_name %> <%= partner.second_last_name %>
+        </p>
+        <p class="text-gray-500 font-medium">
+            Appointments scheduled: <%= partner.appointments.count %>
+        </p>
+        <button class="px-4 py-1 text-sm text-pink-600 font-semibold rounded-full border border-pink-600 hover:text-white hover:bg-pink-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2"> <%= link_to "Profile", partner %> </button>
+    </div>
+    <br>
+  <% end %>
+
+</ul>
+
+<button class="bg-pink-600 px-4 py-1 text-sm text-white font-semibold rounded-full border border-pink-600 hover:text-pink-600 hover:bg-white hover:border-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2"><%= link_to "New Partner", new_partner_path %></button>
+
+<button class="bg-transparent px-4 py-1 text-sm text-pink-600 font-semibold rounded-full border border-pink-600 hover:text-white hover:bg-pink-600 hover:border-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2"><%= link_to "Back", root_path %></button>

@@ -1,0 +1,42 @@
+<div class="grid justify-items-end">
+  <button class=" bg-transparent px-4 py-1 text-sm text-pink-600 font-semibold rounded-full border border-pink-600 hover:text-white hover:bg-pink-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2"><%= link_to "LogOut", destroy_admin_session_path, method: :delete %></button>
+</div>  
+
+<div class="py-8 px-8 max-w-sm  bg-white rounded-xl shadow-md">
+    <h1 class="text-lg text-black font-semibold">
+        <%= @partner.name %> <%= @partner.last_name %> <%= @partner.second_last_name %>
+    </h1>
+    <h2 class="text-pink-600 font-medium">
+        <%= Profession.find(@partner.profession_id).name %>
+    </h2>
+    <p class="text-gray-500 font-medium"> RUT: <%= @partner.rut %></p>
+    <p class="text-gray-500 font-medium"> Age:  <%= @partner.age %></p>
+    <p class="text-gray-500 font-medium"> Gender:  <%= @partner.gender %></p>
+    <button class="px-4 py-1 text-sm text-pink-600 font-semibold rounded-full border border-pink-600 hover:text-white hover:bg-pink-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2"> <%= link_to "Edit", edit_partner_path(@partner) %> </button>
+    <button class="px-4 py-1 text-sm text-pink-600 font-semibold rounded-full border border-pink-600 hover:text-white hover:bg-pink-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2"> <%= link_to "Destroy", partner_path(@partner), method: :delete, data: { confirm: "Are you sure?" } %> </button>
+</div>
+
+<br>
+
+<div class="py-8 px-8 max-w-max  bg-white rounded-xl shadow-md">
+  <h2 class="text-lg text-black font-semibold">Schedule an appointment with <%= @partner.name %> <%= @partner.last_name %> <%= @partner.second_last_name %></h2>
+  <%= form_with model: [ @partner, @partner.appointments.build ] do |form| %>
+    <p class="text-gray-500 font-medium">
+      <%= form.label :datetime %>
+      <%= form.datetime_select :start_time %>
+    </p>
+
+    <p class="text-gray-500 font-medium">
+      <%= form.label :duration %>
+      <%= form.select :duration, [15, 30, 45, 60] %>
+    </p>
+
+    <button class="bg-transparent px-4 py-1 text-sm text-pink-600 font-semibold rounded-full border border-pink-600 hover:text-white hover:bg-pink-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2">
+      <%= form.submit %> 
+    </button>
+  <% end %>
+</div>
+
+<br>
+
+<button class="bg-transparent px-4 py-1 text-sm text-pink-600 font-semibold rounded-full border border-pink-600 hover:text-white hover:bg-pink-600 hover:border-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-600 focus:ring-offset-2"><%= link_to "Back", partners_path %></button>
